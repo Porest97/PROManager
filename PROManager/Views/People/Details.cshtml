@@ -11,46 +11,16 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.FullName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.FullName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Address)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StreetAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StreetAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.County)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.County)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ssn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ssn)
+            @Html.DisplayFor(model => model.Address)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PhoneNumber)
@@ -71,22 +41,29 @@
             @Html.DisplayFor(model => model.RefereeNumber)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ssn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ssn)
+        </dd>
+
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.RefereeType)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RefereeType.Id)
+            @Html.DisplayFor(model => model.RefereeType.RefereeTypeName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.RefereeCategory)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RefereeCategory.Id)
+            @Html.DisplayFor(model => model.RefereeCategory.RefereeCategoryName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.RefereeDistrikt)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RefereeDistrikt.Id)
+            @Html.DisplayFor(model => model.RefereeDistrikt.RefereeDistriktName)
         </dd>
     </dl>
 </div>
