@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,16 +12,21 @@ namespace PROManager.Controllers
 {
     public class PeopleController : Controller
     {
+        
         private readonly PROManagerContext _context;
-
+        
         public PeopleController(PROManagerContext context)
         {
             _context = context;
         }
 
+        //Search freetext in People <---ToDo first thin to morrow !
+
+       
         // GET: People
         public async Task<IActionResult> Index()
         {
+
             var pROManagerContext = _context.Person.Include(p => p.RefereeCategory).Include(p => p.RefereeDistrikt).Include(p => p.RefereeType);
             return View(await pROManagerContext.ToListAsync());
         }
@@ -49,7 +55,7 @@ namespace PROManager.Controllers
         // GET: People/Create
         public IActionResult Create()
         {
-            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "Id");
+            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "Id" );
             ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "Id");
             ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "Id");
             return View();
