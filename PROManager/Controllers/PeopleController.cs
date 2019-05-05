@@ -55,9 +55,10 @@ namespace PROManager.Controllers
         // GET: People/Create
         public IActionResult Create()
         {
-            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "Id" );
-            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "Id");
-            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "Id");
+            //ViewData["RefereeCategoryId"] = new SelectList(_context.RefereeCategory, "RefereeCategoryId", "RefereeCategory");
+            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "RefereeCategoryName");
+            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "RefereeDistriktName");
+            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "RefereeTypeName");
             return View();
         }
 
@@ -74,9 +75,9 @@ namespace PROManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "Id", person.RefereeCategoryId);
-            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "Id", person.RefereeDistriktId);
-            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "Id", person.RefereeTypeId);
+            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "RefereeCategoryName", person.RefereeCategoryId);
+            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "RefereeDistriktName", person.RefereeDistriktId);
+            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "RefereeTypeName", person.RefereeTypeId);
             return View(person);
         }
 
@@ -93,9 +94,9 @@ namespace PROManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "Id", person.RefereeCategoryId);
-            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "Id", person.RefereeDistriktId);
-            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "Id", person.RefereeTypeId);
+            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "RefereeCategoryName", person.RefereeCategoryId);
+            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "RefereeDistriktName", person.RefereeDistriktId);
+            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "RefereeTypeName", person.RefereeTypeId);
             return View(person);
         }
 
@@ -131,9 +132,9 @@ namespace PROManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "Id", person.RefereeCategoryId);
-            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "Id", person.RefereeDistriktId);
-            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "Id", person.RefereeTypeId);
+            ViewData["RefereeCategoryId"] = new SelectList(_context.Set<RefereeCategory>(), "Id", "RefereeCategoryName", person.RefereeCategoryId);
+            ViewData["RefereeDistriktId"] = new SelectList(_context.Set<RefereeDistrikt>(), "Id", "RefereeDistriktName", person.RefereeDistriktId);
+            ViewData["RefereeTypeId"] = new SelectList(_context.Set<RefereeType>(), "Id", "RefereeTypeName", person.RefereeTypeId);
             return View(person);
         }
 

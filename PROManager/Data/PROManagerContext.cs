@@ -21,5 +21,11 @@ namespace PROManager.Models
         public DbSet<PROManager.Models.RefereeType> RefereeType { get; set; }
 
         public DbSet<PROManager.Models.RefereeDistrikt> RefereeDistrikt { get; set; }
+
+        public DbSet<PROManager.Models.Match> Match { get; set; }
+
+        public DbSet<PROManager.Models.AFAktivity> AFAktivity { get; set; }
+
+        public DbSet<PROManager.Models.AFAktivityType> AFAktivityType { get; set; }
     }
 }

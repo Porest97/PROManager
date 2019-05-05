@@ -14,6 +14,14 @@ namespace PROManager.Controllers
         {
             return View();
         }
+        public IActionResult People()
+        {
+            return View();
+        }
+        public IActionResult AFAktivities()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
