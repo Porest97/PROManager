@@ -10,45 +10,46 @@ namespace PROManager.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Datum & Tid")]
         public DateTime MatchDateTime { get; set; }
 
-        public Team HomeTeam { get; set; }
+        [Display(Name = "Arena")]
+        public Arena Arena { get; set; }
+        public int? ArenaId { get; set; }
 
-        public Team AwayTeam { get; set; }
-
+        [Display(Name = "Hemma")]
+        public HomeTeam HomeTeam { get; set; }
+        public int? HomeTeamId { get; set; }
+        [Display(Name = "Borta")]
+        public AwayTeam AwayTeam { get; set; }
+        public int? AwayTeamId { get; set; }
         public int? ScoreHomeTeam { get; set; }
 
-        public int? AwayHomeTeam { get; set; }
+        [Display(Name = "Resultat")]
+        public string Result { get { return string.Format("{0} {1} {2}", ScoreHomeTeam, "-", ScoreAwayTeam); } }
 
-        public Referee Ref1 { get; set; }
+        public int? ScoreAwayTeam { get; set; }
 
-        public Referee Ref2 { get; set; }
+        [Display(Name = "HD")]
+        public Referee Referee { get; set; }
+        public int? RefereeId { get; set; }
 
-        public Referee Ref3 { get; set; }
+        [Display(Name = "HD")]
+        public Referee1 Referee1 { get; set; }
+        public int? Referee1Id { get; set; }
 
-        public Referee Ref4 { get; set; }
-    }
+        [Display(Name = "LD")]
+        public Referee1 Referee2 { get; set; }
+        public int? Referee2Id { get; set; }
 
-    public class Team
-    {
-        public int Id { get; set; }
+        [Display(Name = "LD")]
+        public Referee1 Referee3 { get; set; }
+        public int? Referee3Id { get; set; }
 
-        public string TeamName { get; set; }
-
-    }
-    public class Referee
-    {
-        public int Id { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        [Display(Name = "Namn")]
-        public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
+        [Display(Name = "Serie")]
+        public Series Series { get; set; }
+        public int? SeriesId { get; set; }
 
 
     }
-
-
 }

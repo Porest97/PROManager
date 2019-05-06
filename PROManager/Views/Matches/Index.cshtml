@@ -1,0 +1,95 @@
+﻿@model IEnumerable<PROManager.Models.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreHomeTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreAwayTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arena.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreHomeTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreAwayTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee1.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee2.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee3.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Series.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

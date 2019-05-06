@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROManager.Models;
 
 namespace PROManager.Migrations
 {
     [DbContext(typeof(PROManagerContext))]
-    partial class PROManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20190506010833_Matches")]
+    partial class Matches
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,36 +70,6 @@ namespace PROManager.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Arena");
-                });
-
-            modelBuilder.Entity("PROManager.Models.AwayTeam", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("TeamId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeamId");
-
-                    b.ToTable("AwayTeam");
-                });
-
-            modelBuilder.Entity("PROManager.Models.HomeTeam", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("TeamId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeamId");
-
-                    b.ToTable("HomeTeam");
                 });
 
             modelBuilder.Entity("PROManager.Models.Match", b =>
@@ -329,31 +301,17 @@ namespace PROManager.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("PROManager.Models.AwayTeam", b =>
-                {
-                    b.HasOne("PROManager.Models.Team", "Team")
-                        .WithMany()
-                        .HasForeignKey("TeamId");
-                });
-
-            modelBuilder.Entity("PROManager.Models.HomeTeam", b =>
-                {
-                    b.HasOne("PROManager.Models.Team", "Team")
-                        .WithMany()
-                        .HasForeignKey("TeamId");
-                });
-
             modelBuilder.Entity("PROManager.Models.Match", b =>
                 {
                     b.HasOne("PROManager.Models.Arena", "Arena")
                         .WithMany()
                         .HasForeignKey("ArenaId");
 
-                    b.HasOne("PROManager.Models.AwayTeam", "AwayTeam")
+                    b.HasOne("PROManager.Models.Team", "AwayTeam")
                         .WithMany()
                         .HasForeignKey("AwayTeamId");
 
-                    b.HasOne("PROManager.Models.HomeTeam", "HomeTeam")
+                    b.HasOne("PROManager.Models.Team", "HomeTeam")
                         .WithMany()
                         .HasForeignKey("HomeTeamId");
 
